@@ -7,13 +7,13 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
--- -- Save folds and cursor position when leaving a buffer
--- vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
---   pattern = { "*.*" },
---   callback = function()
---     vim.cmd("silent! mkview")
---   end,
--- })
+-- Save folds and cursor position when leaving a buffer
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+  pattern = { "*.*" },
+  callback = function()
+    vim.cmd("silent! mkview")
+  end,
+})
 --
 -- -- Load folds and cursor position when entering a buffer
 -- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -22,3 +22,10 @@
 --     vim.cmd("silent! loadview")
 --   end,
 -- })
+
+vim.filetype.add({
+  extension = {
+    adoc = "asciidoc",
+    asciidoc = "asciidoc",
+  },
+})
